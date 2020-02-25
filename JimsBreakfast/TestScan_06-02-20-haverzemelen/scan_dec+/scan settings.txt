@@ -1,0 +1,60 @@
+ScanID : 200206_002
+BatchID : 
+Project : 
+START
+date: 06/02/2020; time: 12:59:37
+
+STOP
+date: 06/02/2020; time: 13:06:31
+
+SCAN DURATION : 7 minutes
+VC : -0.021820
+HC : 974.356348
+SDD : 527.997070
+SOD : 423.562012
+Voxel size : 60.004951
+Magnification : 1.246564
+
+Operator : felix
+Sample name :  
+Sample owner : 
+Application area : 
+Sample size : 0.000000 mm
+Comment : 
+Scanner name : CWI
+Scanner type : customScanner S/N : 001
+Acquila version : 1608:9d9981ba6919
+
+
+X-ray tube : xraysource
+Tube voltage : 90.000000
+Tube power : 25.000000
+Vacuum level : 
+Filter : 
+Focus mode : microfocus
+Target current : 0.000000
+Filament status : 
+Filament mode : 
+Output mode : Target power
+
+Camera : detector
+Exposure time (ms) : 80.000000
+Number of averages : 1.000000
+Original pixel size : 0.074800
+Imaging mode : HW1SW1High
+Binning value : 1
+Binned pixel size : 0.074800
+ROI (LTRB) : 0,780,1943,780
+
+rot_obj : 0.000000 ; speed : 45.000000 ; acceleration : 45.000000
+ver_obj : 340.001373 ; speed : 37.500000 ; acceleration : 125.000000
+ver_tube : 40.000000 ; speed : 37.500000 ; acceleration : 125.000000
+ver_det : 35.000000 ; speed : 37.500000 ; acceleration : 125.000000
+mag_obj : 410.561523 ; speed : 50.000000 ; acceleration : 80.000000
+mag_det : 488.996582 ; speed : 50.000000 ; acceleration : 80.000000
+tra_det : -24.250000 ; speed : 50.000000 ; acceleration : 80.000000
+tra_obj : 0.600586 ; speed : 100.000000 ; acceleration : 100.000000
+tra_tube : 0.000000 ; speed : 20.000000 ; acceleration : 50.000000
+PI_X : 0.000060 ; speed : 10.000000 ; acceleration : 5.000000
+PI_Y : 0.000083 ; speed : 10.000000 ; acceleration : 5.000000
+
