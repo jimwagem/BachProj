@@ -22,7 +22,7 @@ def averageField(filenames,size):
     return result_field
 
 # Data and Distance from source to object/detector respectively.
-data_dir = "./JimsBreakfast/TestScan_06-02-20_creamer/"
+data_dir = "./JimsBreakfast/TestScan_06-02-20_fakecoffee/"
 SOD = 203.549805
 SDD = 528.014648
 
@@ -36,7 +36,7 @@ exclude_last_pro = True
 # Reconstruction paramters
 nXYBase = 64
 scale_fac = 8
-ang_sub_samp = 1
+ang_sub_samp = 3
 lim_ang = 360
 
 
@@ -100,8 +100,8 @@ data = [np.clip(sublist, min_data, 1) for sublist in data]
 data = np.array([-np.log(sublist) for sublist in data])
 
 # Display sinogram
-# plt.imshow(data)
-# plt.show()
+plt.imshow(data,cmap='gray')
+plt.show()
 # Create astra object for reconstruction
 recID = astra.data2d.create('-vol', vol_geom)
 sinoID = astra.data2d.create('-sino', proj_geom, data)
@@ -120,14 +120,12 @@ else:
 
 # Create and run algorithm
 alg_id = astra.algorithm.create(cfg)
-iterations = 5
+iterations = 10
 astra.algorithm.run(alg_id, iterations)
 
 # Recieve reconstruction
 rec = astra.data2d.get(recID)
-plt.imshow(10*rec)
-plt.show()
-plt.imshow(100*rec)
+plt.imshow(rec, cmap='gray')
 plt.show()
 
 # Clean up.
