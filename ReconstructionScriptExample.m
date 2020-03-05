@@ -8,9 +8,9 @@ close all
 addpath(genpath('~/astra-toolbox/matlab'))
 
 %% reconstruction parameters
-    
+
 % directory where data is stored
-dataDir = '/export/scratch2/felix/data/CT/JimsBreakfast/TestScan_06-02-20_fakecoffee_highres/'  % path to data
+dataDir = './JimsBreakfast/TestScan_06-02-20_fakecoffee_highres/'  % path to data
 
 
 % specify source-detector distance (SDD) and source-object distance (SOD)
@@ -32,6 +32,8 @@ limAng       = 360;    % angular range (< 360 leads to limited view artifacts
 
 % Read in dark and flat fields
 darkFieldFiles  = dir([dataDir, 'di*.tif']);
+disp("test")
+disp(size(darkFieldFiles));
 flatFieldFiles  = dir([dataDir, 'io*.tif']);
 
 detectorSize    = size(imread([dataDir darkFieldFiles(1).name]));
@@ -65,8 +67,8 @@ volGeo  = astra_create_vol_geom(nX, nY);
 SDD         = SDD * scaleFac;
 SOD         = SOD * scaleFac;
 decPixelSz  = binning*0.074800 * scaleFac;
-    
-projGeo = astra_create_proj_geom('fanflat',  decPixelSz, detectorSize(2), angles, SOD, SDD - SOD);     
+
+projGeo = astra_create_proj_geom('fanflat',  decPixelSz, detectorSize(2), angles, SOD, SDD - SOD);
 
 
 %% if we compute reconstructions, read in and preprocess data
@@ -89,13 +91,13 @@ flatField = flatField / length(flatFieldFiles);
 data = zeros([nPro, detectorSize(2)]);
 
 for iPro = 1:nPro
-    
+
     data_i = double(imread([dataDir, projectionFiles(iPro).name]));
-    
+
     % dark and flat field correction
     data_i = (data_i - darkField)./ (flatField - darkField);
     data(iPro,:) = data_i;
-    
+
 end
 
 % reset values smaller or equal to 0
@@ -171,7 +173,7 @@ astra_mex_data2d('delete', sinoId, recId);
 
 figure();
 subplot(1,2,1); imagesc(FBP_rec); axis square
-subplot(1,2,2); imagesc(SIRT_rec); axis square    
+subplot(1,2,2); imagesc(SIRT_rec); axis square
 
 %% delete all data objects
 
