@@ -14,35 +14,37 @@ class MyNN(nn.Module):
         x = self.lin2(x)
         return x
 
+cuda = torch.device('cuda')
+x = torch.tensor([1,2]).cuda()
 
-train_data = []
-solutions = []
-num_samples = 100
-real_lin = nn.Linear(5,5)
-for _ in range(num_samples):
-    x = torch.randn(5)
-    y = real_lin(torch.sin(x))
-    train_data.append(x)
-    solutions.append(y)
+# train_data = []
+# solutions = []
+# num_samples = 100
+# real_lin = nn.Linear(5,5)
+# for _ in range(num_samples):
+#     x = torch.randn(5)
+#     y = real_lin(torch.sin(x))
+#     train_data.append(x)
+#     solutions.append(y)
 
-solutions = torch.stack(solutions)
-train_data = torch.stack(train_data)
-loss_func = F.mse_loss
+# solutions = torch.stack(solutions)
+# train_data = torch.stack(train_data)
+# loss_func = F.mse_loss
 
-model = MyNN()
+# model = MyNN()
 
 
-lr = 0.1
-def fit(eps):
-    for ep in range(eps):
-        pred = model(train_data)
-        loss = loss_func(pred, solutions)
+# lr = 0.1
+# def fit(eps):
+#     for ep in range(eps):
+#         pred = model(train_data)
+#         loss = loss_func(pred, solutions)
 
-        loss.backward(retain_graph=True)
-        with torch.no_grad():
-            for p in model.parameters():
-                p -= p.grad * lr
-            model.zero_grad()
+#         loss.backward(retain_graph=True)
+#         with torch.no_grad():
+#             for p in model.parameters():
+#                 p -= p.grad * lr
+            # model.zero_grad()
 
 # print(loss_func(model(train_data), solutions))
 # fit(20)
