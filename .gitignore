@@ -5,3 +5,4 @@ __pycache__/
 ignorestuff/
 pytorch/
 *.pyc
+thesis_data.zip
