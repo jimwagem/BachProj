@@ -18,8 +18,10 @@ reconstruction_programs:
 - gen_example: Generate example reconstructions
 
 data:
-- rawdata: Raw scanning data. Each slice corresponds to 1 cross-section. Used as input for reconstruct_func/gen_data.
-- fbp_data: Images reconstructed using the FBP algorithm. Subfolder indicated reconstruction constraint.
-- sirt_data: Images reconstructed using the SIRT algorithm. Subfolder indicated reconstruction constraint.
+- rawdata*: Raw scanning data. Each slice corresponds to 1 cross-section. Used as input for reconstruct_func/gen_data.
+- fbp_data*: Images reconstructed using the FBP algorithm. Subfolder indicated reconstruction constraint.
+- sirt_data*: Images reconstructed using the SIRT algorithm. Subfolder indicated reconstruction constraint.
 - result_images: Reconstructions and neural network enhancements.
 - training_losses: Loss per epoch for networks trained on different input.
+
+* Too large, moved to zenodo
