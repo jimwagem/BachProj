@@ -24,4 +24,4 @@ data:
 - result_images: Reconstructions and neural network enhancements.
 - training_losses: Loss per epoch for networks trained on different input.
 
-* Too large, moved to zenodo
+'*' Too large, moved to zenodo
